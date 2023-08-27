@@ -1,14 +1,13 @@
-require 'money'
+require 'pry'
 
 class Dollar
   attr_accessor :amount
 
   def initialize(amount)
     @amount = amount
-  #   @currency = currency
   end
 
   def times(multiplier)
-    @amount *= multiplier
+    Dollar.new(@amount * multiplier)
   end
 end
