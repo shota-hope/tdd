@@ -1,8 +1,9 @@
 require 'rspec'
 require 'dollar'
 require 'franc'
+require 'pry'
 
-RSpec.describe Dollar do
+RSpec.describe Money do
   it 'multiplies the amount by a factor' do
     five = Money.dollar(5)
     expect(five.times(2).amount).to eq(Money.dollar(10).amount)
@@ -19,9 +20,14 @@ RSpec.describe Dollar do
   end
 
   it 'test franc mutipication' do
-    five = Franc.new(5)
+    five = Money.franc(5)
     expect(five.times(2).amount).to eq(Money.franc(10).amount)
     product = five.times(3)
     expect(five.times(3).amount).to eq(Money.franc(15).amount)
+  end
+
+  it 'currency' do
+    expect(Money.dollar(1).currency).to eq("USD")
+    expect(Money.franc(1).currency).to eq("CHF")
   end
 end

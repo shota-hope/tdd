@@ -1,8 +1,10 @@
 class Money
   attr_accessor :amount
+  attr_accessor :currency
 
-  def initialize(amount)
+  def initialize(amount, currency)
     @amount = amount
+    @currency = currency
   end
 
   def equals(money)
@@ -10,10 +12,10 @@ class Money
   end
 
   def self.dollar(amount)
-    Dollar.new(amount)
+    Dollar.new(amount, "USD")
   end
 
   def self.franc(amount)
-    Franc.new(amount)
+    Franc.new(amount, "CHF")
   end
 end
