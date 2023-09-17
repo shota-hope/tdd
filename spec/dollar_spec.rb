@@ -1,5 +1,6 @@
 require 'rspec'
 require 'dollar'
+require 'franc'
 
 RSpec.describe Dollar do
   it 'multiplies the amount by a factor' do
@@ -12,5 +13,12 @@ RSpec.describe Dollar do
   it '#epuals' do
     expect(Dollar.new(5).equals(Dollar.new(5))).to be_truthy
     expect(Dollar.new(5).equals(Dollar.new(6))).to be_falsey
+  end
+
+  it 'test franc mutipication' do
+    five = Franc.new(5)
+    expect(five.times(2).amount).to eq(Franc.new(10).amount)
+    product = five.times(3)
+    expect(five.times(3).amount).to eq(Franc.new(15).amount)
   end
 end
