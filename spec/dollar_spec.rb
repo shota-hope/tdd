@@ -13,6 +13,8 @@ RSpec.describe Dollar do
   it '#epuals' do
     expect(Dollar.new(5).equals(Dollar.new(5))).to be_truthy
     expect(Dollar.new(5).equals(Dollar.new(6))).to be_falsey
+    expect(Franc.new(5).equals(Franc.new(5))).to be_truthy
+    expect(Franc.new(5).equals(Franc.new(6))).to be_falsey
   end
 
   it 'test franc mutipication' do
