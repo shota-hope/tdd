@@ -1,6 +1,7 @@
 require 'rspec'
-require 'franc'
 require 'pry'
+require 'money'
+require 'bank'
 
 RSpec.describe Money do
   it '#epuals' do
@@ -19,5 +20,13 @@ RSpec.describe Money do
   it 'currency' do
     expect(Money.dollar(1).currency).to eq("USD")
     expect(Money.franc(1).currency).to eq("CHF")
+  end
+
+  it 'simple addtion' do
+    five = Money.dollar(5)
+    sum = five.plus(five)
+    bank = Bank.new
+    reduced= bank.reduce(sum, 'USD')
+    expect(reduced.amount).to eq(Money.dollar(10).amount)
   end
 end

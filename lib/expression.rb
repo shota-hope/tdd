@@ -1,4 +1,4 @@
 require 'money'
 
-class Franc < Money
+class Expression
 end
